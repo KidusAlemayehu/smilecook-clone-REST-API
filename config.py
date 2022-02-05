@@ -18,7 +18,7 @@ class Config:
     MAIL_DEFAULT_SENDER = "kidusalemayehu705@gmail.com"
     UPLOADED_IMAGES_DEST = 'static/images'
     CACHE_TYPE = 'simple'
-    CACHE_DEFAULT_TIMEOUT = 10*60
+    CACHE_DEFAULT_TIMEOUT = 10*60*60
     RATELIMIT_HEADERS_ENABLED = True
 
 
