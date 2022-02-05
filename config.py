@@ -33,6 +33,8 @@ class DevelopmentConfig(Config):
 
 class ProductionConfig(Config):
     SECRET_KEY = os.environ.get('SECRET_KEY')
+    MAIL_SERVER = os.environ.get('EMAIL_SERVER')
+    MAIL_PORT = os.environ.get('EMAIL_PORT')
     MAIL_USERNAME = os.environ.get('EMAIL_USER')
     MAIL_PASSWORD = os.environ.get('EMAIL_PASS')
     MAIL_DEFAULT_SENDER = os.environ.get('EMAIL_DEFAULT_SENDER')
