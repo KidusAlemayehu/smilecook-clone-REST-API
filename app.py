@@ -5,7 +5,7 @@ from flask_migrate import Migrate
 from flask_restful import Api
 from flask_uploads import configure_uploads
 from config import Config
-from extensions import db, jwt, image_set, cache, limiter
+from extensions import db, jwt, image_set, cache, limiter, mail
 from resources.user import UserListResource, UserResource, MeResource, UserRecipeListResource, UserActivateResource, UserAvatarUploadResource
 from resources.token import UserLoginResource, RefreshTokenResource, UserLogoutResource, black_list
 from resources.recipe import RecipeListResource, RecipeResource, RecipePublishResource, RecipeCoverUploadResource
@@ -30,6 +30,7 @@ def register_extensions(app):
     db.init_app(app)
     migrate = Migrate(app, db)
     jwt.init_app(app)
+    mail.init_app(app)
     configure_uploads(app, image_set)
     cache.init_app(app)
     limiter.init_app(app)
