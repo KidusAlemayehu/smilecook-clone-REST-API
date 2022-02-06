@@ -36,7 +36,7 @@ def register_extensions(app):
     limiter.init_app(app)
 
     @jwt.token_in_blocklist_loader
-    def check_if_token_in_blacklist(decrypted_token):
+    def check_if_token_in_blacklist(jwt_header, decrypted_token):
         jti = decrypted_token['jti']
         return jti in black_list
 
