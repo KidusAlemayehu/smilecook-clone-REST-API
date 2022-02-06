@@ -75,7 +75,7 @@ class RecipeResource(Resource):
         recipe.cook_time = data.get('cook_time')
         recipe.directions = data.get('directions')
         recipe.save()
-        clear_cache('api/recipes')
+        clear_cache('recipes')
         return recipe.data(), HTTPStatus.OK
 
     @jwt_required()
@@ -97,7 +97,7 @@ class RecipeResource(Resource):
         recipe.directions = data.get('directions') or recipe.directions
 
         recipe.save()
-        clear_cache('api/recipes')
+        clear_cache('recipes')
         return recipe_schema.dump(recipe), HTTPStatus.OK
 
     @ jwt_required
@@ -123,7 +123,7 @@ class RecipePublishResource(Resource):
             return {"message": "access not allowed"}, HTTPStatus.FORBIDDEN
         recipe.is_publish = True
         recipe.save()
-        clear_cache('api/recipes')
+        clear_cache('recipes')
         return {}, HTTPStatus.NO_CONTENT
 
     @ jwt_required()
@@ -135,7 +135,7 @@ class RecipePublishResource(Resource):
         if recipe.user_id != current_user:
             return {"message": "access not allowed"}, HTTPStatus.FORBIDDEN
         recipe.is_publish = False
-        clear_cache('api/recipes')
+        clear_cache('recipes')
         return {}, HTTPStatus.NO_CONTENT
 
 
@@ -159,5 +159,5 @@ class RecipeCoverUploadResource(Resource):
         filename = save_image(image=file, folder='recipes')
         recipe.cover_image = filename
         recipe.save()
-        clear_cache('api/recipes')
+        clear_cache('recipes')
         return recipe_cover_schema.dump(recipe), HTTPStatus.OK
