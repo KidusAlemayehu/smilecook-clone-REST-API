@@ -26,9 +26,9 @@ class DevelopmentConfig(Config):
     DEBUG = True
     SECRET_KEY = 'zQITImwb3bwq6S-rnCHzr0LeuWUuhnt230c40Z7mYo8'
     SQLALCHEMY_DATABASE_URI = "postgresql+psycopg2://postgres:3346khag@localhost/SmileCook"
-    if SQLALCHEMY_DATABASE_URI and SQLALCHEMY_DATABASE_URI.startswith("postgres://"):
-        SQLALCHEMY_DATABASE_URI = SQLALCHEMY_DATABASE_URI.replace(
-            "postgres://", "postgresql://", 1)
+    # if SQLALCHEMY_DATABASE_URI and SQLALCHEMY_DATABASE_URI.startswith("postgres://"):
+    #     SQLALCHEMY_DATABASE_URI = SQLALCHEMY_DATABASE_URI.replace(
+    #         "postgres://", "postgresql://", 1)
 
 
 class ProductionConfig(Config):

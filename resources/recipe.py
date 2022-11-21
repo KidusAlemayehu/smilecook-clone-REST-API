@@ -19,7 +19,7 @@ recipe_pagination_schema = RecipePaginationSchema()
 
 
 class RecipeListResource(Resource):
-    decorators = [limiter.limit('3 per minute;30 per hour; 300 per day', methods=[
+    decorators = [limiter.limit('10 per minute;300 per hour; 5400 per day', methods=[
                                 'GET'], error_message='Too Many Requests')]
 
     @use_kwargs({'q': fields.Str(missing=''), 'page': fields.Int(missing=1),
