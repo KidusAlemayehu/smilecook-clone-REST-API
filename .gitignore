@@ -1,5 +1,6 @@
 static/images/avatars/*
 static/images/recipes/*
+static/assets/recipes/*
 .idea/
 smilecook/
-vscode/
+.vscode/
